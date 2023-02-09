@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { getProducts } from '../api/firebase';
-import { useQuery } from '@tanstack/react-query';
 import ProductItem from './ProductItem';
 import useProducts from '../hooks/useProducts';
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../context/AuthContext';
 
 const TEXT_STYLE =
     'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-5xl font-bold 2xl:text-4xl lg:text-3xl md:text-base';
@@ -19,7 +16,7 @@ export default function MainProducts() {
     // } = useQuery(['produts'], () => getProducts(productType));
 
     const {
-        productsQuery: { isLoading, error, refetch, data: products },
+        productsQuery: { data: products },
     } = useProducts(productType);
 
     const handleAllClick = (e) => {

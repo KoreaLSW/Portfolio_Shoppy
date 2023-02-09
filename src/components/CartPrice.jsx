@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { parse } from 'uuid';
+import React from 'react';
 import useCart from '../hooks/useCart';
 
-export default function CartPrice({ product }) {
+export default function CartPrice() {
     const {
-        cartQuery: { isLoading, data: products },
-        addorUpdateItem,
-        removeItem,
+        cartQuery: { data: products },
     } = useCart();
 
     const totalPrice =

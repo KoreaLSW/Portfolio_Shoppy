@@ -5,15 +5,8 @@ import useCart from '../hooks/useCart';
 
 const ICON_CLASS =
     'transition-all cursor-pointer hover:text-brand hover:scale105 mx-1';
-export default function CartItem({
-    product,
-    product: { id, image, title, option, quantity, price },
-}) {
-    const {
-        cartQuery: { isLoading, data: products },
-        addorUpdateItem,
-        removeItem,
-    } = useCart();
+export default function CartItem({ product, product: { quantity, price } }) {
+    const { addorUpdateItem, removeItem } = useCart();
     const handleMinue = () => {
         if (product.quantity < 2) return;
         addorUpdateItem.mutate({ ...product, quantity: quantity - 1 });

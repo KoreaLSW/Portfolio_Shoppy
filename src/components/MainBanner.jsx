@@ -14,11 +14,7 @@ const BANNER_CONTENT_TEXT = 'text-white text-2xl font-bold mb-10 md:text-sm';
 export default function MainBanner() {
     const navigate = useNavigate();
 
-    const {
-        isLoading,
-        error,
-        data: banner,
-    } = useQuery(['banner'], () => getMainBannerImg());
+    const { data: banner } = useQuery(['banner'], () => getMainBannerImg());
 
     const handleBanner = () => {
         navigate(`/shop/ProductAll`);
@@ -40,7 +36,11 @@ export default function MainBanner() {
             <Slider {...settings}>
                 {banner && (
                     <li key={banner[0]} className='relative'>
-                        <img className='object-cover ' src={banner[0]} />
+                        <img
+                            className='object-cover '
+                            src={banner[0]}
+                            alt='banner01'
+                        />
                         <div className='flex flex-col items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                             <h2 className={BANNER_TITLE_TEXT}>
                                 최고의 품질의 옷을 만나보세요!
@@ -56,7 +56,11 @@ export default function MainBanner() {
                 )}
                 {banner && (
                     <li key={banner[1]} className='relative'>
-                        <img className='object-cover ' src={banner[1]} />
+                        <img
+                            className='object-cover '
+                            src={banner[1]}
+                            alt='banner02'
+                        />
                         <div className='flex flex-col items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                             <h2 className={BANNER_TITLE_TEXT}>
                                 최고의 품질의 옷을 만나보세요
@@ -72,7 +76,11 @@ export default function MainBanner() {
                 )}
                 {banner && (
                     <li key={banner[2]} className='relative'>
-                        <img className='object-cover ' src={banner[2]} />
+                        <img
+                            className='object-cover '
+                            src={banner[2]}
+                            alt='banner03'
+                        />
                         <div className='flex flex-col items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                             <h2 className={BANNER_TITLE_TEXT}>
                                 최고의 품질의 옷을 만나보세요
